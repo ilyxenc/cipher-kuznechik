@@ -51,17 +51,19 @@ K = [
 
 # текст, который необходимо зашифровать
 text = '8899AABBCCDDEEFF0077665544332211'
+print('Исходный текст: ', text)
 
 # шифрование текста
-textCiphered = text
+textEncrypted = text
 for i in range(9):
-    textCiphered = L(S(X(textCiphered, K[i])))
-    # print(textCiphered)
-textCiphered = X(textCiphered, K[9])
-print(textCiphered)
+    textEncrypted = L(S(X(textEncrypted, K[i])))
+    # print(textEncrypted)
+textEncrypted = X(textEncrypted, K[9])
+print(textEncrypted)
 
 # расшифрование текста
-textDecrypted = textCiphered
+textDecrypted = textEncrypted
 for i in range(9, 0, -1):
     textDecrypted = S(L(X(textDecrypted, K[i]), 'reverse'), 'reverse')
 textDecrypted = X(textDecrypted, K[0])
+print(textDecrypted)
